@@ -1,0 +1,80 @@
+.grid-container{
+    width: 325px;
+    height: 325px;
+    background-color: var(--darkgrey);
+    border: 2px solid var(--darkgrey) ;
+    border-radius: 0.75rem;
+
+
+}
+
+.info-flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.price-chip{
+    border: 2px solid var(--green);
+    border-radius: 2rem;
+    padding: 0.35rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--green);
+    font-size: 1rem;
+}
+
+.chip-red{
+    border: 2px solid var(--red);
+    color: var(--red);
+
+
+}
+.icon-chip{
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--green);
+    font-size: 1rem;
+
+}
+
+.chip-red{
+    border: 2px solid var(--red) !important ;
+    color: var(--red) !important;
+
+
+}
+
+.price-chip:hover,
+.icon-chip:hover{
+    background-color: green;
+    color: white;
+    transition: all 0.3s;
+}
+
+.chip-red:hover{
+    background-color: red !important;
+    color: white !important;
+    transition: all 0.3s;
+}
+
+.info-container{
+    margin: 1.5rem;
+}
+
+.grid-container:hover{
+    border-color: var(--green);
+    transition: all 0.3s;
+    background-color: rgb(37, 36, 36);
+}
+
+.grid-container-red:hover{
+    border-color: var(--red);
+    transition: all 0.3s;
+
+}

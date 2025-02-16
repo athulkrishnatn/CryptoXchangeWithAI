@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+
+:root {
+  --white: #fff;
+  --black: #111;
+  --blue: #3a80e9;
+  --grey: #888;
+  --darkgrey: #1b1b1b;
+  --green: #61c96f;
+  --red: #9c3333;
+}
+
+
+body{
+  font-family: "Inter", serif;
+  background-color: black;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+img {
+  -webkit-user-drag: none; /* Safari & Chrome */
+  -moz-user-drag: none; /* Firefox (might not be necessary) */
+  -o-user-drag: none; /* Opera */
+  
+}
