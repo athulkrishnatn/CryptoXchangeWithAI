@@ -3,6 +3,7 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function AnchorTemporaryDrawer() {
   
@@ -23,18 +24,18 @@ export default function AnchorTemporaryDrawer() {
             onClose={()=> setOpen(false)}
           >
           <div className='p-5 ms-4 font-medium  h-[100vh] w-[40vh] '>
-          <a href="/">
+            <Link to="/">
             <p className='hover:text-white'>Home</p>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/compare">
             <p className='hover:text-white'>Compare</p>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/watchlist">
             <p className='hover:text-white'>Watchlist</p>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/dashboard">
             <p className='hover:text-white'>Dashboard</p>
-            </a>
+            </Link>
           </div>
           </Drawer>
  

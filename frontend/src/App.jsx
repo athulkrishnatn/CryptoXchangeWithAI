@@ -1,20 +1,28 @@
-import { useState } from 'react'
 import './App.css'
-import Header from './components/Common/Header'
-import MainComponent from './components/LandingPage/MainComponent'
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-    <>
-      <div>
-        <Header/>
-        <MainComponent/>
+   
+      <div className='App'>
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+       
+
+        </Routes>
+        
+        </BrowserRouter>
+        
        
       </div>
     
-    </>
+    
   )
 }
 
