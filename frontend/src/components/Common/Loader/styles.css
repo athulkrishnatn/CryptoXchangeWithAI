@@ -1,0 +1,5 @@
+.loader-container{
+    color: var(--blue);
+    position: absolute;
+    z-index: 1000;
+}

@@ -23,3 +23,62 @@
     margin-right: 1.5rem !important;
 }
 
+.price-chip{
+    min-width: 65px;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .td-chip-icon {
+      display: none;
+    }
+  
+    .list-row td {
+      font-size: 0.7rem;
+    }
+  
+    .td-totalVolume {
+      display: none;
+    }
+  
+    .td-current-price {
+      text-align: center !important;
+    }
+  
+    .list-row {
+      width: 100%;
+      padding: 1.5rem 0rem;
+    }
+  
+    .coin-image-td {
+      height: 2rem;
+      width: 2rem;
+    }
+  
+    .td-info {
+      width: 6rem !important;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .td-marketCap,
+    .td-chip-icon {
+      display: none !important;
+    }
+    .mobile {
+      display: block !important;
+      text-align: left !important;
+    }
+    .list-row td,
+    .td-p {
+      font-size: 0.6rem !important;
+    }
+  
+    .td-info {
+      width: 4rem !important;
+    }
+  
+    .coin-image-td {
+      height: 2rem !important;
+      width: 2rem !important;
+    }
+  }
