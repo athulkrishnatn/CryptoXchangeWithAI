@@ -11,7 +11,9 @@
   --red: #9c3333;
 }
 
-
+html{
+  scroll-behavior: smooth;
+}
 body{
   font-family: "Inter", serif;
   background-color: black;
