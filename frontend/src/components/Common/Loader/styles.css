@@ -2,4 +2,6 @@
     color: var(--blue);
     position: absolute;
     z-index: 1000;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }

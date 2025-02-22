@@ -44,3 +44,14 @@ img {
   -o-user-drag: none; /* Opera */
   
 }
+
+
+.grey-wrapper{
+  background-color: var(--darkgrey);
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+  display: block;
+  width: 90%;
+  padding: 0rem 0.5rem;
+
+}
