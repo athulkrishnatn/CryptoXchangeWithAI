@@ -1,36 +1,36 @@
-import React from 'react'
-import TemporaryDrawer from './drawer'
-import Button from '../Button/index'
-import { Link } from 'react-router-dom'
-
-
+import React from 'react';
+import TemporaryDrawer from './drawer';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className='flex justify-between sticky p-5 ps-7'>
-        <h1 className='ms-5 text-2xl text-white font-semibold'>Cryptoxchange <span className='to-blue-300 inline-block'>.</span></h1>
-        <div className="links text-gray-500 font-semibold items-center flex justify-end gap-6 pe-5 max-[800px]:hidden  ">
-            <Link to="/">
-            <p className='hover:text-white'>Home</p>
-            </Link>
-            <Link to="/compare">
-            <p className='hover:text-white'>Compare</p>
-            </Link>
-            <Link to="/">
-            <p className='hover:text-white'>Watchlist</p>
-            </Link>
-            <Link to="/dashboard">
-            <Button  text={"Dashboard"} onClick={ ()=> console.log("Btn clicked")}
-            />
-            </Link>
-        </div>
+    <div className="flex justify-between items-center relative p-5 ps-7">
+      {/* Left: Logo */}
+      <Link to={'/'}>
+        <h1 className="ms-5 text-2xl text-white font-semibold">
+          CryptoTrackerAI <span className="text-blue-300">.</span>
+        </h1>
+      </Link>
 
-        <div className="hidden max-[800px]:block">
-          <TemporaryDrawer/>
-        </div>
-      
+      {/* Center: Navigation Links */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 text-white font-light flex gap-6 max-[800px]:hidden">
+        <Link to="/" className="hover:text-white">Home</Link>
+        <Link to="/dashboard" className="hover:text-white">Dashboard</Link>
+        <Link to="/compare" className="hover:text-white">Compare</Link>
+        <Link to="/watchlist" className="hover:text-white">Watchlist</Link>
+      </div>
+
+      {/* Right: Login/Signup */}
+      <div className="text-white font-light">
+        <h2>Login/Signup</h2>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div className="hidden max-[800px]:block">
+        <TemporaryDrawer />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
