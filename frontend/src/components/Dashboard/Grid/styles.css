@@ -1,7 +1,7 @@
 .grid-container{
     width: 325px;
     height: 325px;
-    background-color: var(--darkgrey);
+    background-color:rgb(18, 17, 17);
     border: 2px solid var(--darkgrey) ;
     border-radius: 0.75rem;
 
@@ -70,7 +70,7 @@
 .grid-container:hover{
     border-color: var(--green);
     transition: all 0.3s;
-    background-color: rgb(37, 36, 36);
+    
 }
 
 .grid-container-red:hover{

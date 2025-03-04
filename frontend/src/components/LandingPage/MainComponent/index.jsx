@@ -1,27 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Spotlight } from "../../ui/spotlight";
+import { HoverBorderGradient } from "../../ui/hover-border-gradient";
 
 const MainComponent = () => {
   return (
-    <div className="text-center mt-[10rem] w-full">
-      {/*Heading section */}
-      <div>
-        <h1 className="text-6xl bg-gradient-to-r from-gray-700 via-white to-gray-700 bg-clip-text text-transparent">
+    <Spotlight>
+      <div className="text-center mt-[24rem] w-full h-screen">
+        {/* Heading section */}
+        <h1 className="text-6xl bg-gradient-to-r from-gray-700 via-white to-gray-700 bg-clip-text text-transparent font-normal">
           Empower your trading decisions with <br /> 
-          <span className="text-orange-400">Precision-driven intelligence</span>
+          <span className="bg-gradient-to-r from-gray-400 via-white to-gray-700 bg-clip-text font-normal  ">Precision-driven intelligence</span>
         </h1>
         <h5 className="mt-2 text-lg text-gray-400">
-          Harness AI-powered insights, real-time analytics, and predictive market <br /> 
+          Harness AI-powered insights, real-time analytics, and predictive market <br />
           trends to stay ahead in the crypto landscape.
         </h5>
+
+        {/* Buttons */}
+        <div className="mt-5 flex justify-center items-center gap-9">
+        <HoverBorderGradient as="div" className="rounded-2xl">
+           <Link to="/dashboard" className=" text-white ">
+            Get started
+          </Link>
+        </HoverBorderGradient>
+
+        </div>
       </div>
-      {/*Button*/}
-      <div className="mt-5 flex justify-center items-center gap-9" >
-      <Link to={'/dashboard'}  className="  p-2 rounded-2xl text-white border-white-2 hover:underline ">Learn More</Link>
-        <Link to={'/dashboard'}  className="px-3 py-2 rounded-2xl text-white bg-orange-600 hover:bg-amber-800 ">Get started</Link>
-      </div>
-    </div>
+    </Spotlight>
   );
-}
+};
 
 export default MainComponent;
