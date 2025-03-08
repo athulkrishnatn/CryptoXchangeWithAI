@@ -1,76 +1,111 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../redux/authSlice";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import {motion} from 'framer-motion'
 
-const Login = () => {
+const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const [dots, setDots] = useState("");
+
+  useEffect(() => {
+    if (loading) {
+      const interval = setInterval(() => {
+        setDots((prev) => (prev.length < 3 ? prev + "." : ""));
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [loading]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
+
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
         email,
         password,
       });
-      dispatch(loginSuccess(res.data));
-      navigate("/dashboard");
-    } catch (err) {
-      alert("Invalid credentials");
+
+      const { token } = response.data;
+
+      if (token) {
+        sessionStorage.setItem("token", token);
+        
+
+        if (onLoginSuccess) onLoginSuccess(); // ✅ Only call if it's provided
+
+        setTimeout(() => {
+          setLoading(false);
+          navigate("/dashboard");
+        }, 3000);
+
+        
+      } else {
+        throw new Error("Invalid login response. No token received.");
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || "Login failed. Try again.");
+    } finally {
+      
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black px-4">
-      <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-sm">
-        <h2 className="text-3xl font-normal text-center text-white mb-6">Login</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-300">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full bg-gray-700 text-white border border-gray-600 p-3 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-300">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full bg-gray-700 text-white border border-gray-600 p-3 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <button
+    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 ">
+
+  <div className="w-full flex justify-between items-center p-5 absolute top-0">
+    <h1 className="text-white text-lg font-medium ps-2">CryptoTrackerAI</h1>
+    <h1 className="text-white text-lg font-bold pe-5">Sign In</h1>
+  </div>
+
+      <div className="bg-black border-[2px]  border-gray-400/30 p-8 rounded-lg shadow-lg w-96">
+        <h2 className="text-2xl font-semibold text-white text-center mb-6">Sign in to Cryptotracker AI</h2>
+
+        {error && <p className="text-red-400 text-center mb-4">{error}</p>}
+
+        <form onSubmit={handleLogin} className="space-y-4">
+          <label className="py-3 font-light" htmlFor="">Email</label>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full p-3 bg-gray-700 text-white rounded-md"
+          />
+          <label className="py-3 font-light" htmlFor="">Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-3 bg-gray-700 text-white rounded-md"
+          />
+           <motion.button
             type="submit"
-            className="w-full bg-white text-black py-3 rounded-lg font-normal text-lg hover:bg-gray-300 transition duration-200"
-          >
-            Login
-          </button>
+            style={{ minWidth: "150px" }} // Keeps button width fixed
+              disabled={loading}
+             className="w-full bg-gray-100 text-black hover:bg-gray-200 py-3 rounded-md flex justify-center"
+              >
+              {loading ? (
+               <>
+              Signing In
+            <span className="inline-block w-[1ch] text-center">{dots}</span>
+              </>
+              ) : (
+             "Sign In"
+              )}
+                </motion.button>
+        
         </form>
-        <p className="text-sm text-center mt-4 text-gray-300">
-          Don't have an account?{" "}
-          <span
-            className="text-blue-400 font-medium cursor-pointer hover:underline"
-            onClick={() => navigate("/register")}
-          >
-            Sign Up
-          </span>
-        </p>
+        <p className="text-gray-500 text-sm text-center justify-center pt-4"> New User?{""} <Link to={'/signup'} className="text-blue-500 hover:underline">Create an account</Link> </p>
       </div>
     </div>
   );

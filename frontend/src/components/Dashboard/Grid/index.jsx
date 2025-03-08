@@ -1,44 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { WatchlistContext } from "../../../context/WatchlistContext"; // Import context
 import "./styles.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
-import { Link } from "react-router-dom";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import StarIcon from "@mui/icons-material/Star";
 
-const Grid = ({ coin, removeFromWatchlist }) => {
-  const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-  const [isFavourite, setIsFavourite] = useState(watchlist.includes(coin.id));
+const Grid = ({ coin }) => {
+  const { watchlist, toggleWatchlist } = useContext(WatchlistContext);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  useEffect(() => {
+    setIsFavourite(watchlist.includes(coin.id));
+  }, [watchlist, coin.id]);
 
   const toggleFavourite = (e) => {
     e.preventDefault();
-    let updatedWatchlist;
-
-    if (isFavourite) {
-      updatedWatchlist = watchlist.filter((id) => id !== coin.id);
-      removeFromWatchlist(coin.id);
-    } else {
-      updatedWatchlist = [...watchlist, coin.id];
-    }
-
-    localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
-    setIsFavourite(!isFavourite);
+    e.stopPropagation();
+    toggleWatchlist(coin.id);
   };
 
   return (
     <Link to={`/coin/${coin.id}`}>
-      <div
-        className={`grid-container relative ${
-          coin.price_change_percentage_24h < 0 && "grid-container-red relative"
-        }`}
-      >
+      <div className={`grid-container relative ${coin.price_change_percentage_24h < 0 ? "grid-container-red" : ""}`}>
         <div className="info-flex p-4 gap-4">
           <img src={coin.image} className="coin-logo" width="50px" height="50px" />
           <div>
             <p className="font-semibold uppercase">{coin.symbol}</p>
             <p className="text-gray-400 text-sm">{coin.name}</p>
           </div>
-          <div className="absolute top-2.5 right-2.5 cursor-pointer" onClick={toggleFavourite}>
+
+          {/* ✅ Star icon with Context API integration */}
+          <div 
+            className="absolute top-2.5 right-2.5 cursor-pointer"
+            onClick={toggleFavourite}
+          >
             {isFavourite ? <StarIcon className="text-yellow-400" /> : <StarBorderOutlinedIcon />}
           </div>
         </div>

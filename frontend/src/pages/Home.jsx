@@ -8,6 +8,8 @@ const Home = () => {
       <Header/>
       <MainComponent/>
       
+      
+      
     </div>
   )
 }

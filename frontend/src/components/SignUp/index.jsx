@@ -1,88 +1,102 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const SignUp = () => {
-  const [username, setUsername] = useState("");
+const Signup = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
+
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username,
+      const response = await axios.post("http://localhost:5000/api/auth/register", {
+        username: name,
         email,
         password,
       });
-      dispatch(loginSuccess(res.data));
-      navigate("/dashboard");
-    } catch (err) {
-      alert("Registration failed");
+
+      alert(response.data.message || "Signup successful! Please login.");
+
+      // 🔹 Ensure token is NOT stored during signup
+      sessionStorage.removeItem("token");  
+
+      // 🔹 Redirect to login page instead of dashboard
+      navigate("/login");  
+    } catch (error) {
+      setError(error.response?.data?.message || "Signup failed. Try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black px-4">
-      <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-sm">
-        <h2 className="text-3xl font-light text-center text-white mb-6">
-          Sign Up
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-300">
-              Username
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              className="w-full bg-gray-700 text-white border border-gray-600 p-3 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-300">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full bg-gray-700 text-white border border-gray-600 p-3 rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-300">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full bg-gray-700 text-white border border-gray-600 p-3 rounded-lg mt-1 focus:outline-none focus:ring-2 "
-            />
-          </div>
+    <div 
+      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 "
+      onClick={() => navigate("/")}
+    >
+    <div className="w-full flex justify-between items-center p-5 absolute top-0">
+    <h1 className="text-white text-lg font-medium ps-2">CryptoTrackerAI</h1>
+    <h1 className="text-white text-lg font-bold pe-5">Sign Up</h1>
+  </div>
+      <div 
+        className="bg-black border-[2px] border-gray-600/30 p-8 rounded-lg shadow-lg w-96"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 className="text-2xl font-semibold text-white text-center ">Sign Up</h2>
+        <p className="pt-2 pb-5 text-sm text-gray-500 ">Sign up to track and manage your favorite cryptos easily!</p>
+
+        {error && <p className="text-red-400 text-center mb-4">{error}</p>}
+
+        <form onSubmit={handleSignup} className="space-y-4">
+          <label className="mb-3 font-light" htmlFor="">Username</label>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="w-full p-3 bg-gray-700 text-white rounded-md"
+          />
+          <label className="mb-3 font-light" htmlFor="">Email</label>
+
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full p-3 bg-gray-700 text-white rounded-md"
+          />
+          <label htmlFor="password" className="mb-3 font-light">Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-3 bg-gray-700 text-white rounded-md"
+          />
+
           <button
             type="submit"
-            className="w-full bg-white text-black py-3 rounded-lg font-light text-lg hover:bg-gray-300 transition duration-200"
+            disabled={loading}
+            className="w-full text-black bg-white hover:bg-gray-200 py-3 rounded-md"
           >
-            Register
+            {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
-        <p className="text-sm text-center mt-4 text-gray-300">
-          Already have an account?{" "}
+
+        <p className="text-gray-400 text-sm text-center mt-4">
+          Already have an account?
           <span
-            className="text-blue-400 font-medium cursor-pointer hover:underline"
+            className="text-blue-400 cursor-pointer hover:text-blue-500 hover:underline ml-1"
             onClick={() => navigate("/login")}
           >
             Login
@@ -93,4 +107,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
