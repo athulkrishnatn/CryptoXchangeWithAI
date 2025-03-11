@@ -9,7 +9,7 @@
   --grey: #888;
   --darkgrey: #1b1b1b;
   --green: #61c96f;
-  --red: #9c3333;
+  --red: #c84545;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -50,7 +50,7 @@ html{
 }
 body{
   font-family: "Inter", serif;
-  background-color: black;
+  background-color: rgb(8, 8, 8);
   color: white;
 }
 

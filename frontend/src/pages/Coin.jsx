@@ -17,7 +17,7 @@ import { settingChartData } from '../functions/settingChartData';
 const Coin = () => {
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
-    const [coinData, setCoinData] = useState(null); // Initialize as null for better checks
+    const [coinData, setCoinData] = useState(null); 
     const [days, setDays] = useState(60);
     const [chartData, setChartData] = useState({});
 
@@ -58,7 +58,7 @@ const Coin = () => {
     
         
     
-        const prices = await getCoinPrices(id, event.target.value); // Use updated value
+        const prices = await getCoinPrices(id, event.target.value); 
     
         if (prices.length > 0) {
             console.log("woohoo");
@@ -75,7 +75,7 @@ const Coin = () => {
     
 
     return (
-        <div>
+        <div className='mt-20'>
             <Header />
             {isLoading ? (
                 <Loader />

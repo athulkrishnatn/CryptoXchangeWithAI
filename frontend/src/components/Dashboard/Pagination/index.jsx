@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 
 export default function PaginationComponent({ page, handlePageChange }) {
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }} className='py-10'>
       <Pagination 
         count={10} 
         page={page} 
@@ -11,7 +11,7 @@ export default function PaginationComponent({ page, handlePageChange }) {
         sx={{
           "& .MuiPaginationItem-text": {
             color: "#fff !important",
-            border: "1px solid var(--grey)",
+            border: "2px solid var(--grey)",
           },
           "& .MuiPaginationItem-text:hover": {
             backgroundColor: "transparent !important",

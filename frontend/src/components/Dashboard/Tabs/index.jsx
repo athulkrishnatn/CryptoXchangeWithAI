@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { createTheme,  ThemeProvider } from '@mui/material';
+import { colors, createTheme,  ThemeProvider } from '@mui/material';
 import Grid from '../Grid';
 
 import "./styles.css"
@@ -13,11 +13,12 @@ export default function TabsComponent({coins}) {
   const [value, setValue] = React.useState('grid');
 
   const style = {
-    color: "var(--white)",
+    color: "var(--black)",
     "& .Mui-selected": {
-      color: "var(--blue) !important",
+      color: "var(--black) !important",
     },
     fontFamily: "Inter,sans-serif",
+    colors:"var(--black)",
     fontWeight: 600,
     textTransform: "capitalize",
   };
@@ -25,7 +26,7 @@ export default function TabsComponent({coins}) {
   const theme = createTheme({
     palette:{
         primary:{
-            main:"#3a80e9",
+            main:"#0000",
         },
     },
   });

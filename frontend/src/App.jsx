@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute  from "../src/pages/ProtectedRoute"
 import { WatchlistProvider } from "./context/WatchlistContext";
 import Chatbot from "./pages/Chatbot";
+import { ToastContainer } from 'react-toastify';
+import About from "./pages/About";
 
 function App() {
   return (
@@ -21,18 +23,16 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home/>} />
 
-            
-  
             {/* Protected Routes */}
-       
-              <Route path="/dashboard" element={  <ProtectedRoute><Dashboard /></ProtectedRoute>} />
-              <Route path="/coin/:id" element={<ProtectedRoute><CoinPage /></ProtectedRoute>} />
-              <Route path="/watchlist" element={<ProtectedRoute><Watchlist /></ProtectedRoute>} />
 
-              
-        
+            <Route path="/about" element={  <ProtectedRoute><About /></ProtectedRoute>} />
+            <Route path="/dashboard" element={  <ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/coin/:id" element={<ProtectedRoute><CoinPage /></ProtectedRoute>} />
+            <Route path="/watchlist" element={<ProtectedRoute><Watchlist /></ProtectedRoute>} />
+                                
           </Routes>
           <Chatbot/>
+          <ToastContainer/>
         </BrowserRouter>
       </WatchlistProvider>
     </div>

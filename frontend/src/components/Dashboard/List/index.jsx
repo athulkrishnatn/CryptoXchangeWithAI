@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { WatchlistContext } from "../../../context/WatchlistContext"; // Import Context
+import { WatchlistContext } from "../../../context/WatchlistContext"; 
 import "./styles.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
@@ -48,10 +48,7 @@ const List = ({ coin }) => {
 
   return (
     <tr className="list-row h-full">
-      {/* Star Icon for Watchlist */}
-      <td className="p-4 cursor-pointer" onClick={toggleFavourite}>
-        {isFavourite ? <StarIcon className="text-yellow-400" /> : <StarBorderOutlinedIcon />}
-      </td>
+     
 
       {/* Coin Image & Name */}
       <td className="td-image p-4 flex items-center gap-4 h-full">

@@ -10,9 +10,9 @@ const CoinInfo = ({heading, desc}) => {
 
   return (
     <div className='grey-wrapper'>
-        <h2 className='coin-info-heading mt-2 ms-2 pt-2 font-semibold text-2xl'>{heading}</h2>
+        <h2 className='coin-info-heading mt-2 ms-2 pt-2  text-2xl font-light'>{heading}</h2>
         {
-            desc.length>200 ?  <p onClick={()=>setFlag(!flag)} className='coin-info-desc mt-2 ms-2 cursor-pointer' dangerouslySetInnerHTML={{__html: !flag?shortDesc : longDesc}} /> 
+            desc.length>200 ?  <p onClick={()=>setFlag(!flag)} className='coin-info-desc mt-2 ms-2 cursor-pointer font-light' dangerouslySetInnerHTML={{__html: !flag?shortDesc : longDesc}} /> 
             :
             <p className='mt-2 ms-2 cursor-pointer' dangerouslySetInnerHTML={{__html:desc}}/>
 

@@ -1,17 +1,19 @@
-.grid-container{
+.grid-container {
     width: 325px;
     height: 325px;
-    background-color:rgb(18, 17, 17);
-    border: 2px solid var(--darkgrey) ;
+    background-color: rgb(0, 0, 0);
+    
     border-radius: 0.75rem;
-
-
-}
+    margin-bottom: 30px;
+    position: relative; 
+    overflow: visible; 
+  }
 
 .info-flex{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    
 }
 
 .price-chip{
@@ -67,14 +69,3 @@
     margin: 1.5rem;
 }
 
-.grid-container:hover{
-    border-color: var(--green);
-    transition: all 0.3s;
-    
-}
-
-.grid-container-red:hover{
-    border-color: var(--red);
-    transition: all 0.3s;
-
-}

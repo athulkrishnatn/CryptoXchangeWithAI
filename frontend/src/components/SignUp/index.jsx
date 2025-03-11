@@ -16,7 +16,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
+      const response = await axios.post("https://cryptotrackerai-server.onrender.com/api/auth/register", {
         username: name,
         email,
         password,
@@ -27,7 +27,7 @@ const Signup = () => {
       // 🔹 Ensure token is NOT stored during signup
       sessionStorage.removeItem("token");  
 
-      // 🔹 Redirect to login page instead of dashboard
+    
       navigate("/login");  
     } catch (error) {
       setError(error.response?.data?.message || "Signup failed. Try again.");
