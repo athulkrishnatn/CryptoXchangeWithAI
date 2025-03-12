@@ -64,10 +64,14 @@ const About = () => {
             by providing precise market analytics, AI-enhanced decision-making tools, and personalized insights. Our platform empowers users with the information they need 
             to navigate the dynamic crypto market effectively.
           </p>
+          <p className="text-gray-400 text-lg font-light leading-relaxed py-2">CryptoTrackrAI is committed to revolutionizing the way traders interact with digital assets by providing precise market analytics, AI-enhanced decision-making tools, and personalized insights. Our platform empowers users with the information they need to navigate the dynamic crypto market effectively. Whether you're new to crypto or an experienced trader, CryptoTrackrAI simplifies complex data and turns it into actionable intelligence.
+
+Our AI-powered platform not only tracks market fluctuations but also helps predict price movements with advanced machine learning algorithms. This enables users to stay ahead of potential market shifts and make proactive trading decisions. Additionally, our sentiment analysis tools monitor news, social media, and blockchain trends to provide a holistic view of the market.</p>
+<p className="text-gray-400 text-lg font-light leading-relaxed">We understand that security and transparency are essential when dealing with digital assets. That’s why CryptoTrackrAI prioritizes data integrity and user privacy. With our decentralized and secure architecture, users can access real-time market intelligence without compromising their personal data.</p>
         </section>
 
      
-        <section className="mt-10 mb-10 w-full max-w-7xl text-left ms-6">
+        <section className="mt-10 mb-5 w-full max-w-7xl text-left ms-6">
           <h2 className="text-5xl font-light text-white mb-6 flex items-center">
            Why Choose CryptoTrackrAI?   
           </h2>
@@ -76,6 +80,7 @@ const About = () => {
             real-time market analysis, and seamless portfolio management. Our advanced analytics engine ensures you have access to the most accurate data, helping you make 
             well-informed trading decisions. Whether you’re an active trader or a long-term investor, our platform is designed to optimize your strategy and enhance your profitability.
           </p>
+          <p className="text-gray-400 text-lg leading-relaxed font-light py-2">Traditional investment tools often fail to capture the volatility of cryptocurrencies. CryptoTrackrAI fills this gap by offering real-time alerts, deep technical analysis, and customizable dashboards. Whether you’re an active trader or a long-term investor, our platform is designed to optimize your strategy and enhance your profitability.</p>
         </section>
     
 
@@ -88,6 +93,18 @@ const About = () => {
             Don't just follow the market—stay ahead of it. Experience the power of AI-driven crypto insights and take control of your investments like never before. 
             Sign up now and start making data-backed decisions with confidence.
           </p>
+          <p className="text-gray-400 text-lg leading-relaxed font-light">
+  By joining <span className="text-white font-semibold">CryptoTrackrAI</span>, you gain access to:<br /> <br />
+  <span className="text-white font-medium">AI-driven insights:</span> Advanced analytics and predictive models.<br />
+   <span className="text-white font-medium">Real-time price tracking:</span> Up-to-the-second market updates.<br />
+   <span className="text-white font-medium">Portfolio management:</span> Track, analyze, and optimize your investments.<br />
+  <span className="text-white font-medium">Community-driven strategies:</span> Learn and share insights with top traders.<br /><br />
+  
+  Whether you're looking to make your first crypto trade or refine your investment strategies, 
+  <span className="text-white font-semibold">CryptoTrackrAI</span> is your all-in-one solution for staying informed and making data-backed decisions. 
+  <span className="text-white font-semibold">Sign up now</span> and start your journey toward smarter, more efficient crypto trading!
+</p>
+
         </section>
 
         <Footer />
