@@ -41,9 +41,10 @@ const Header = () => {
           <Link to="/" className={` ${location.pathname === "/" ? "border-b-2 border-white font-semibold" : ""}`} >Home</Link>
           <Link to="/about" className={` ${location.pathname === "/about" ? "border-b-2 border-white font-semibold" : ""}`}>About</Link>
 
-          <Link to="/dashboard" className={` ${location.pathname === "/dashboard" ? "border-b-2 border-white font-semibold" : ""}`}>Portfolio</Link>
-          
+          <Link to="/dashboard" className={` ${location.pathname === "/dashboard" ? "border-b-2 border-white font-semibold" : ""}`}>Coins</Link>
+          <Link to="/nft" className={` ${location.pathname === "/nft" ? "border-b-2 border-white font-semibold" : ""}`}>NFT</Link>
           <Link to="/watchlist" className={` ${location.pathname === "/watchlist" ? "border-b-2 border-white font-semibold" : ""}`}>Watchlist</Link>
+          
 
         </div>
 

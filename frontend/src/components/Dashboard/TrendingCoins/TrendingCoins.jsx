@@ -28,13 +28,13 @@ const TrendingCoins = () => {
       setCoinImages(images);
     });
 
-    // WebSocket for live price updates
+   
     const socket = new WebSocket("wss://stream.binance.com:9443/ws/!ticker@arr");
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
 
-      // Top 5 selected coins
+     
       const selectedCoins = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "SOLUSDT", "XRPUSDT"];
       const top5Coins = data
         .filter((coin) => selectedCoins.includes(coin.s))
@@ -79,7 +79,7 @@ const TrendingCoins = () => {
 
   return (
     <div className="pt-18">
-      <h1 className="text-4xl font-bold ms-8">CryptoCurrency Prices by Market Cap</h1>
+      <h1 className="text-4xl font-bold ms-8">Today's CryptoCurrency Prices by Market Cap</h1>
       <p className="text-lg font-light text-gray-400 py-3 ms-8">
       The worldwide cryptocurrency market capitalization today stands at an estimated $2.7T , seeing a 0.13% movement over the last 24 hours. The total cryptocurrency trading volume in the past day is roughly $187B. Bitcoin's market dominance is at about 58.9%.
       </p>

@@ -11,6 +11,7 @@ import { WatchlistProvider } from "./context/WatchlistContext";
 import Chatbot from "./pages/Chatbot";
 import { ToastContainer } from 'react-toastify';
 import About from "./pages/About";
+import NFT from "./pages/NFT";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home/>} />
+            <Route path="/nft" element={<NFT/>} />
 
             {/* Protected Routes */}
 
@@ -29,6 +31,7 @@ function App() {
             <Route path="/dashboard" element={  <ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/coin/:id" element={<ProtectedRoute><CoinPage /></ProtectedRoute>} />
             <Route path="/watchlist" element={<ProtectedRoute><Watchlist /></ProtectedRoute>} />
+           
                                 
           </Routes>
           <Chatbot/>
