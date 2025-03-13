@@ -66,13 +66,13 @@ const Login = ({ onLoginSuccess }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 sm:my-10">
       <div className="w-full flex justify-between items-center p-5 absolute top-0">
         <h1 className="text-white text-lg font-medium ps-2">CryptoTrackerAI</h1>
         <h1 className="text-white text-lg font-bold pe-5">Sign In</h1>
       </div>
 
-      <div className="bg-black border-[2px] border-gray-400/30 p-8 rounded-lg shadow-lg w-96">
+      <div className="bg-black border-[2px] border-gray-400/30 p-8 rounded-lg shadow-lg w-96 sm:w-sm">
         <h2 className="text-2xl font-semibold text-white text-center mb-6">
           Sign in to Cryptotracker AI
         </h2>
@@ -98,7 +98,7 @@ const Login = ({ onLoginSuccess }) => {
             required
             className="w-full p-3 bg-gray-700 text-white rounded-md"
           />
-          <motion.button
+          <button
             type="submit"
             style={{ minWidth: "150px" }}
             disabled={loading}
@@ -112,7 +112,7 @@ const Login = ({ onLoginSuccess }) => {
             ) : (
               "Sign In"
             )}
-          </motion.button>
+          </button>
         </form>
 
         <p className="text-gray-500 text-sm text-center justify-center pt-4">

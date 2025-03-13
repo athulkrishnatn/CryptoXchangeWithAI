@@ -38,7 +38,7 @@ const Signup = () => {
 
   return (
     <div 
-      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 "
+      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 sm:py-10"
       onClick={() => navigate("/")}
     >
     <div className="w-full flex justify-between items-center p-5 absolute top-0">
@@ -46,10 +46,10 @@ const Signup = () => {
     <h1 className="text-white text-lg font-bold pe-5">Sign Up</h1>
   </div>
       <div 
-        className="bg-black border-[2px] border-gray-600/30 p-8 rounded-lg shadow-lg w-96"
+        className="bg-black border-[2px] border-gray-600/30 p-8 rounded-lg shadow-lg w-96 sm:py-10 sm:mx-7 sm:w-sm"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-2xl font-semibold text-white text-center ">Sign Up</h2>
+        <h2 className="text-xl font-semibold text-white text-center md:text-2xl lg:text-3xl ">Sign Up</h2>
         <p className="pt-2 pb-5 text-sm text-gray-500 ">Sign up to track and manage your favorite cryptos easily!</p>
 
         {error && <p className="text-red-400 text-center mb-4">{error}</p>}

@@ -25,16 +25,20 @@ export default function AnchorTemporaryDrawer() {
           >
           <div className='p-5 ms-4 font-medium  h-[100vh] w-[40vh] '>
             <Link to="/">
-            <p className='hover:text-white'>Home</p>
+            <p className='hover:text-gray-700 font-light py-3'>Home</p>
             </Link>
             <Link to="/compare">
-            <p className='hover:text-white'>Compare</p>
-            </Link>
-            <Link to="/watchlist">
-            <p className='hover:text-white'>Watchlist</p>
+            <p className='hover:text-gray-700 font-light py-3'>About</p>
             </Link>
             <Link to="/dashboard">
-            <p className='hover:text-white'>Dashboard</p>
+            <p className='hover:text-gray-700 font-light py-3'>Coins</p>
+            </Link>
+            
+            <Link to="/nft">
+            <p className='hover:text-gray-700 font-light py-3'>NFT</p>
+            </Link>
+            <Link to="/watchlist">
+            <p className='hover:text-gray-700 font-light py-3'>Watchlist</p>
             </Link>
           </div>
           </Drawer>

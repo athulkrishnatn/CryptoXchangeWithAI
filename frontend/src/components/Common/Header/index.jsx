@@ -32,8 +32,8 @@ const Header = () => {
     <>
       <div className=" fixed top-0 left-0 w-full  backdrop-blur-md z-50  flex justify-between items-center   p-5 ps-5">
         <Link to={"/"}>
-          <h1 className="ms-3 text-2xl text-white font-light">
-            CryptoTrackerAI <i class="fa-brands fa-hive"></i>
+          <h1 className=" text-lg sm:text-xl lg:ms-3 lg:text-2xl text-white font-light">
+         <span>   CryptoTrackerAI <i class="fa-brands fa-hive sm:w-sm"></i></span>
           </h1>
         </Link>
 
@@ -48,7 +48,7 @@ const Header = () => {
 
         </div>
 
-        <div className="text-white font-light flex gap-3">
+        <div className="text-white font-light hidden md:flex gap-3">
           {token ? (
             <button
               onClick={handleLogout}
