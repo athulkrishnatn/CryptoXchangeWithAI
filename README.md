@@ -1,5 +1,5 @@
 
-#CryptoVeille is an AI-powered, real-time cryptocurrency monitoring platform that blends live market data, smart UI design, and conversational assistance to deliver fast, insightful crypto analysis.
+CryptoVeille is an AI-powered, real-time cryptocurrency monitoring platform that blends live market data, smart UI design, and conversational assistance to deliver fast, insightful crypto analysis.
 
 🌐 Live Demo: CryptoVeille – Try it out!
 
